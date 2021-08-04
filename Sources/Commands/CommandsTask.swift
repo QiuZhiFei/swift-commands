@@ -107,8 +107,10 @@ private extension Commands.Task {
     } else {
       outputData = fileHandle.readDataToEndOfFile()
     }
-    guard let outputData = outputData else { return nil }
-    return String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+    if let outputData = outputData {
+      return String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    return nil
   }
 }
 
