@@ -14,6 +14,7 @@ The `Commands` module allows you to take a system command as a string and return
 import Commands
 ```
 
+### Bash
 Executes command in a subprocess.
 ```
 Commands.Bash.system("ls")
@@ -28,6 +29,16 @@ case .Success(let output):
 case .Failure(let code, let output):
   debugPrint("failure code: \(code), output: \(output)")
 }
+```
+### Python
+Executes command in a subprocess.
+```swift
+Commands.Python.system("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+```
+### Ruby
+Executes command in a subprocess.
+```swift
+Commands.Ruby.system("require 'base64'; puts Base64.encode64('qiuzhifei')")
 ```
 
 ## Adding Commands as a Dependency
