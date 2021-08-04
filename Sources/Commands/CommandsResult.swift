@@ -7,19 +7,27 @@
 
 public extension Commands {
   enum Result {
-    case Success(output: String)
-    case Failure(code: Int32, output: String)
+    case Success(_ reponse: Commands.Response)
+    case Failure(_ reponse: Commands.Response)
   }
 }
 
 public extension Commands.Result {
-  var output: String {
+  var reponse: Commands.Response {
     switch self {
-    case .Success(let output):
-      return output
-    case .Failure(_, let output):
-      return output
+    case .Success(let response):
+      return response
+    case .Failure(let response):
+      return response
     }
+  }
+  
+  var statusCode: Int32 {
+    return reponse.statusCode
+  }
+  
+  var output: String {
+    return reponse.output
   }
 }
 

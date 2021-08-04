@@ -40,4 +40,20 @@ final class swift_commandsTests: XCTestCase {
     
     XCTAssert(python.run("import qiuzhifei").isFailure)
   }
+  
+  func testCustomCommands() throws {
+    let bash = Commands.Custom("/bin/bash", dashc: "-c")
+    
+    let bashDebugResult = bash.run("echo $commands_debug")
+    XCTAssert(bashDebugResult.isSuccess)
+    XCTAssert(bashDebugResult.output == "")
+    
+    let bashDebugENVResult = bash.run("echo $commands_debug", environment: ["commands_debug": "1"])
+    XCTAssert(bashDebugENVResult.isSuccess)
+    XCTAssert(bashDebugENVResult.output == "1")
+    
+    let node = Commands.Custom("/usr/local/bin/node1", dashc: "-e")
+    let nodeLogResult = node.run("console.log('qiuzhifei')")
+    XCTAssert(nodeLogResult.isFailure)
+  }
 }

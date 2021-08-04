@@ -41,6 +41,13 @@ Executes command in a subprocess.
 Commands.Ruby.system("require 'base64'; puts Base64.encode64('qiuzhifei')")
 ```
 
+### Custom
+Executes command in a subprocess.
+```swift
+let node = Commands.Custom("/usr/local/bin/node", dashc: "-e")
+node.system("console.log('qiuzhifei')")
+```
+
 ## Adding Commands as a Dependency
 To use the `Commands` library in a SwiftPM project, 
 add the following line to the dependencies in your `Package.swift` file:

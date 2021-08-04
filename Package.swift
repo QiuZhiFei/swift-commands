@@ -11,6 +11,7 @@ let package = Package(
   dependencies: [],
   targets: [
     .target(name: "Commands", dependencies: []),
+    .target(name: "Examples", dependencies: ["Commands"], path: "Examples/"),
     .testTarget(name: "CommandsTests", dependencies: ["Commands"])
   ]
 )

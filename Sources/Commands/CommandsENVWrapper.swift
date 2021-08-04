@@ -35,7 +35,8 @@ public extension Commands {
 public extension Commands {
   struct RubyENV: CommandsENV {
     public var executableURL: String = {
-      return Bash.run("which ruby").output
+      let ruby = Bash.run("which ruby").output
+      return ruby
     }()
     public var dashc: String = "-e"
   }
@@ -46,7 +47,8 @@ public extension Commands {
 public extension Commands {
   struct PythonENV: CommandsENV {
     public var executableURL: String = {
-      return Bash.run("which python").output
+      let python = Bash.run("which python").output
+      return python
     }()
     public var dashc: String = "-c"
   }

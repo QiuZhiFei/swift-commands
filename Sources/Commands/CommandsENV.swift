@@ -13,8 +13,8 @@ public protocol CommandsENV {
   
   func env()
   
-  func run(_ command: String) -> Commands.Result
-  func system(_ command: String)
+  func run(_ command: String, environment: [String: String]?) -> Commands.Result
+  func system(_ command: String, environment: [String: String]?)
 }
 
 public extension CommandsENV {
@@ -27,54 +27,19 @@ public extension CommandsENV {
   }
   
   @discardableResult
-  func run(_ command: String) -> Commands.Result {
-    let process = prepare(command)
-    
-    let output = Pipe()
-    process.standardOutput = output
-    
-    let error = Pipe()
-    process.standardError = error
-    
-    run(process)
-    
-    let outputData = output.fileHandleForReading.readDataToEndOfFile()
-    let outputActual = String(data: outputData, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
-    
-    let errorData = error.fileHandleForReading.readDataToEndOfFile()
-    let errorActual = String(data: errorData, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
-    
-    if process.terminationStatus == EXIT_SUCCESS {
-      return Commands.Result.Success(output: outputActual)
-    }
-    
-    return Commands.Result.Failure(code: process.terminationStatus, output: errorActual)
+  func run(_ command: String, environment: [String: String]? = nil) -> Commands.Result {
+    let request = prepare(command, environment: environment)
+    return Commands.Task.run(request)
   }
   
-  func system(_ command: String) {
-    let process = prepare(command)
-    run(process)
+  func system(_ command: String, environment: [String: String]? = nil) {
+    let request = prepare(command, environment: environment)
+    Commands.Task.system(request)
   }
 }
 
 private extension CommandsENV {
-  func prepare(_ command: String) -> Process {
-    let process = Process()
-    if #available(macOS 10.13, *) {
-      process.executableURL = URL(fileURLWithPath: executableURL)
-    } else {
-      process.launchPath = executableURL
-    }
-    process.arguments = [dashc, command]
-    return process
-  }
-  
-  func run(_ process: Process) {
-    if #available(macOS 10.13, *) {
-      try? process.run()
-    } else {
-      process.launch()
-    }
-    process.waitUntilExit()
+  func prepare(_ command: String, environment: [String: String]? = nil) -> Commands.Request {
+    return Commands.Request(executableURL, dashc: dashc, command: command, environment: environment)
   }
 }
