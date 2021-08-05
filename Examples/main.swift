@@ -7,24 +7,23 @@
 
 import Commands
 
-extension Commands.Result {
+fileprivate extension Commands.Result {
   func log() {
-    let request = self.reponse.request
     print(">>> \(request.executableURL) \(request.dashc) \(request.command)")
     print("\(self.reponse.output)")
   }
 }
 
-// MARK: - Bash
+// Bash
 Commands.Bash.run("ls /bin/ls").log()
 
-// MARK: - Ruby
+// Ruby
 Commands.Ruby.run("require 'base64'; puts Base64.encode64('qiuzhifei')").log()
 
-// MARK: - Python
+// Python
 Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))").log()
 
-// MARK: - Custom
+// Custom
 let nodeResult = Commands.Bash.run("which node")
 if nodeResult.isSuccess {
   let node = Commands.Custom(nodeResult.output, dashc: "-e")

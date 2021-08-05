@@ -1,23 +1,32 @@
 //
 //  CommandsResult.swift
-//  
+//
 //
 //  Created by zhifei qiu on 2021/8/2.
 //
 
 public extension Commands {
   enum Result {
-    case Success(_ reponse: Commands.Response)
-    case Failure(_ reponse: Commands.Response)
+    case Success(_ request: Request, reponse: Response)
+    case Failure(_ request: Request, reponse: Response)
   }
 }
 
 public extension Commands.Result {
+  var request: Commands.Request {
+    switch self {
+    case .Success(let request, _):
+      return request
+    case .Failure(let request, _):
+      return request
+    }
+  }
+  
   var reponse: Commands.Response {
     switch self {
-    case .Success(let response):
+    case .Success(_, let response):
       return response
-    case .Failure(let response):
+    case .Failure(_, let response):
       return response
     }
   }
@@ -34,7 +43,7 @@ public extension Commands.Result {
 public extension Commands.Result {
   var isSuccess: Bool {
     switch self {
-    case .Success(_):
+    case .Success(_, _):
       return true
     default:
       return false
