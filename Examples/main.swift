@@ -7,9 +7,8 @@
 
 import Commands
 
-extension Commands.Result {
+fileprivate extension Commands.Result {
   func log() {
-    let request = self.reponse.request
     print(">>> \(request.executableURL) \(request.dashc) \(request.command)")
     print("\(self.reponse.output)")
   }

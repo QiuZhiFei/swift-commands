@@ -1,6 +1,6 @@
 //
 //  CommandsTask.swift
-//  
+//
 //
 //  Created by zhifei qiu on 2021/8/4.
 //
@@ -28,7 +28,6 @@ public extension Commands {
   struct Response {
     public let statusCode: Int32
     public let output: String
-    public let request: Request
   }
 }
 
@@ -54,15 +53,15 @@ public extension Commands.Task {
       let errorActual = try fileHandleData(fileHandle: errorPipe.fileHandleForReading) ?? ""
       
       if process.terminationStatus == EXIT_SUCCESS {
-        let response = Commands.Response(statusCode: process.terminationStatus, output: outputActual, request: request)
-        return Commands.Result.Success(response)
+        let response = Commands.Response(statusCode: process.terminationStatus, output: outputActual)
+        return Commands.Result.Success(request, reponse: response)
       }
       
-      let response = Commands.Response(statusCode: process.terminationStatus, output: errorActual, request: request)
-      return Commands.Result.Failure(response)
+      let response = Commands.Response(statusCode: process.terminationStatus, output: errorActual)
+      return Commands.Result.Failure(request, reponse: response)
     } catch let error {
-      let response = Commands.Response(statusCode: EXIT_FAILURE, output: error.localizedDescription, request: request)
-      return Commands.Result.Failure(response)
+      let response = Commands.Response(statusCode: EXIT_FAILURE, output: error.localizedDescription)
+      return Commands.Result.Failure(request, reponse: response)
     }
   }
   
