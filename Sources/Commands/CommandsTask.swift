@@ -10,12 +10,12 @@ import Foundation
 public extension Commands {
   struct Request {
     public let executableURL: String
-    public let dashc: String
+    public let dashc: String?
     public let command: String
     public var environment: [String: String]?
     
     public init(_ executableURL: String,
-                dashc: String,
+                dashc: String? = nil,
                 command: String,
                 environment: [String: String]? = nil) {
       self.executableURL = executableURL
@@ -65,6 +65,47 @@ public extension Commands.Task {
     }
   }
   
+  static func system(_ request: Commands.Request,
+                     output: ((String) -> Void)?,
+                     errorOutput: ((String) -> Void)?) {
+    let process = prepare(request)
+    do {
+      if let output = output {
+        let outputPipe = Pipe()
+        process.standardOutput = outputPipe
+        outputPipe.fileHandleForReading.readabilityHandler = { (handler) in
+          let data = handler.availableData
+          if data.count > 0,
+             let result = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            output(result)
+          }
+        }
+      }
+      if let errorOutput = errorOutput {
+        let errorPipe = Pipe()
+        process.standardError = errorPipe
+        errorPipe.fileHandleForReading.readabilityHandler = { (handler) in
+          let data = handler.availableData
+          if data.count > 0,
+             let result = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            errorOutput(result)
+          }
+        }
+      }
+      
+      try run(process)
+      
+      if let _ = output, let outputPipe = process.standardOutput as? Pipe {
+        outputPipe.fileHandleForReading.readabilityHandler = nil
+      }
+      if let _ = errorOutput, let errorPipe = process.standardError as? Pipe {
+        errorPipe.fileHandleForReading.readabilityHandler = nil
+      }
+    } catch let error {
+      print(error.localizedDescription)
+    }
+  }
+  
   static func system(_ request: Commands.Request) {
     let process = prepare(request)
     do {
@@ -86,7 +127,11 @@ private extension Commands.Task {
     if let environment = request.environment {
       process.environment = environment
     }
-    process.arguments = [request.dashc, request.command]
+    if let dashc = request.dashc {
+      process.arguments = [dashc, request.command]
+    } else {
+      process.arguments = [request.command]
+    }
     return process
   }
   

@@ -9,7 +9,11 @@ import Commands
 
 fileprivate extension Commands.Result {
   func log() {
-    print(">>> \(request.executableURL) \(request.dashc) \(request.command)")
+    if let dashc = request.dashc {
+      print(">>> \(request.executableURL) \(dashc) \(request.command)")
+    } else {
+      print(">>> \(request.executableURL) \(request.command)")
+    }
     print("\(self.reponse.output)")
   }
 }

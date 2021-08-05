@@ -9,23 +9,14 @@ import Foundation
 
 public protocol CommandsENV {
   var executableURL: String { get }
-  var dashc: String { get }
-  
-  func env()
+  var dashc: String? { get }
   
   func run(_ command: String, environment: [String: String]?) -> Commands.Result
   func system(_ command: String, environment: [String: String]?)
+  func system(_ command: String, environment: [String: String]?, output: ((String) -> Void)?, errorOutput: ((String) -> Void)?)
 }
 
 public extension CommandsENV {
-  func env() {
-    let desc = """
-      ExecutableURL: \(executableURL)
-      Dashc: \(dashc)
-      """
-    print(desc)
-  }
-  
   @discardableResult
   func run(_ command: String, environment: [String: String]? = nil) -> Commands.Result {
     let request = prepare(command, environment: environment)
@@ -35,6 +26,11 @@ public extension CommandsENV {
   func system(_ command: String, environment: [String: String]? = nil) {
     let request = prepare(command, environment: environment)
     Commands.Task.system(request)
+  }
+  
+  func system(_ command: String, environment: [String: String]? = nil, output: ((String) -> Void)?, errorOutput: ((String) -> Void)?) {
+    let request = prepare(command, environment: environment)
+    Commands.Task.system(request, output: output, errorOutput: errorOutput)
   }
 }
 

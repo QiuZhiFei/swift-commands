@@ -14,7 +14,7 @@ public extension Commands {
   
   static let Python = PythonENV()
   
-  static func Custom(_ executableURL: String, dashc: String) -> CustomENV {
+  static func Custom(_ executableURL: String, dashc: String? = nil) -> CustomENV {
     return CustomENV(executableURL, dashc: dashc)
   }
 }
