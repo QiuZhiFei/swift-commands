@@ -9,12 +9,10 @@ import Commands
 
 fileprivate extension Commands.Result {
   func log() {
-    if let dashc = request.dashc {
-      print(">>> \(request.executableURL) \(dashc) \(request.command)")
-    } else {
-      print(">>> \(request.executableURL) \(request.command)")
-    }
+    print("---------------")
+    print(">>> \(request.absoluteCommand)")
     print("\(self.reponse.output)")
+    print("---------------")
   }
 }
 
@@ -28,8 +26,10 @@ Commands.Ruby.run("require 'base64'; puts Base64.encode64('qiuzhifei')").log()
 Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))").log()
 
 // Custom
-let nodeResult = Commands.Bash.run("which node")
-if nodeResult.isSuccess {
-  let node = Commands.Custom(nodeResult.output, dashc: "-e")
-  node.run("console.log('qiuzhifei')").log()
-}
+let node = Commands.Alias("node", dashc: "-e")
+node.run("console.log('qiuzhifei')").log()
+
+// Task
+Commands.Task.run("bash -c pwd").log()
+Commands.Task.run("python main.py").log()
+Commands.Task.run("ruby -v").log()

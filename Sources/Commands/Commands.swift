@@ -6,15 +6,3 @@
 //
 
 public enum Commands { }
-
-public extension Commands {
-  static let Bash = BashENV()
-  
-  static let Ruby = RubyENV()
-  
-  static let Python = PythonENV()
-  
-  static func Custom(_ executableURL: String, dashc: String? = nil) -> CustomENV {
-    return CustomENV(executableURL, dashc: dashc)
-  }
-}

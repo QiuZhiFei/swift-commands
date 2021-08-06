@@ -5,6 +5,8 @@
 //  Created by zhifei qiu on 2021/8/2.
 //
 
+import Foundation
+
 public extension Commands {
   enum Result {
     case Success(_ request: Request, reponse: Response)
@@ -38,6 +40,10 @@ public extension Commands.Result {
   var output: String {
     return reponse.output
   }
+  
+  var errorOutput: String {
+    return reponse.errorOutput
+  }
 }
 
 public extension Commands.Result {
@@ -52,5 +58,12 @@ public extension Commands.Result {
   
   var isFailure: Bool {
     !isSuccess
+  }
+}
+
+extension Commands.Result: Equatable {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.request == rhs.request
+      && lhs.reponse == rhs.reponse
   }
 }

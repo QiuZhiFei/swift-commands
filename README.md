@@ -20,16 +20,6 @@ Executes command in a subprocess.
 Commands.Bash.system("ls")
 ```
 
-Returns the `Commands.Result` of running cmd in a subprocess.
-```
-let lsResult = Commands.Bash.run("ls")
-switch lsResult {
-case .Success(let output):
-  debugPrint("success output: \(output)")
-case .Failure(let code, let output):
-  debugPrint("failure code: \(code), output: \(output)")
-}
-```
 ### Python
 Executes command in a subprocess.
 ```swift
@@ -41,11 +31,52 @@ Executes command in a subprocess.
 Commands.Ruby.system("require 'base64'; puts Base64.encode64('qiuzhifei')")
 ```
 
-### Custom
-Executes command in a subprocess.
+### Alias
+Create a shortcut name for a command.
 ```swift
 let node = Commands.Custom("/usr/local/bin/node", dashc: "-e")
 node.system("console.log('qiuzhifei')")
+```
+
+### Custom
+Executes command in a subprocess.
+```swift
+Commands.Task.system("python main.py")
+```
+```swift
+Commands.Task.system("ruby -v")
+```
+
+### Making Commands
+```swift
+Commands.Task.system("python main.py")
+```
+Or
+```swift
+let request: Commands.Request = "node -v"
+Commands.Task.system(request)
+```
+Change environment variables
+```swift
+var request: Commands.Request = "node -v"
+request.environment?.add(PATH: "/usr/local/bin")
+request.environment?["http_proxy"] = "http://127.0.0.1:7890"
+request.environment?["https_proxy"] = "http://127.0.0.1:7890"
+request.environment?["all_proxy"] = "socks5://127.0.0.1:7890"
+
+Commands.Task.system(request)
+```
+
+### Result Handler
+Returns the `Commands.Result` of running cmd in a subprocess.
+```
+let lsResult = Commands.Bash.run("ls")
+switch lsResult {
+case .Success(let request, let response):
+  debugPrint("command: \(request.absoluteCommand), success output: \(response.output)")
+case .Failure(let request, let response):
+  debugPrint("command: \(request.absoluteCommand), failure output: \(response.errorOutput)")
+}
 ```
 
 ## Adding Commands as a Dependency

@@ -8,30 +8,6 @@
 import Foundation
 
 public extension Commands {
-  struct Request {
-    public let executableURL: String
-    public let dashc: String?
-    public let command: String
-    public var environment: [String: String]?
-    
-    public init(_ executableURL: String,
-                dashc: String? = nil,
-                command: String,
-                environment: [String: String]? = nil) {
-      self.executableURL = executableURL
-      self.dashc = dashc
-      self.command = command
-      self.environment = environment
-    }
-  }
-  
-  struct Response {
-    public let statusCode: Int32
-    public let output: String
-  }
-}
-
-public extension Commands {
   enum Task { }
 }
 
@@ -53,14 +29,20 @@ public extension Commands.Task {
       let errorActual = try fileHandleData(fileHandle: errorPipe.fileHandleForReading) ?? ""
       
       if process.terminationStatus == EXIT_SUCCESS {
-        let response = Commands.Response(statusCode: process.terminationStatus, output: outputActual)
+        let response = Commands.Response(statusCode: process.terminationStatus,
+                                         output: outputActual,
+                                         errorOutput: errorActual)
         return Commands.Result.Success(request, reponse: response)
       }
       
-      let response = Commands.Response(statusCode: process.terminationStatus, output: errorActual)
+      let response = Commands.Response(statusCode: process.terminationStatus,
+                                       output: errorActual,
+                                       errorOutput: errorActual)
       return Commands.Result.Failure(request, reponse: response)
     } catch let error {
-      let response = Commands.Response(statusCode: EXIT_FAILURE, output: error.localizedDescription)
+      let response = Commands.Response(statusCode: EXIT_FAILURE,
+                                       output: "",
+                                       errorOutput: error.localizedDescription)
       return Commands.Result.Failure(request, reponse: response)
     }
   }
@@ -77,7 +59,9 @@ public extension Commands.Task {
           let data = handler.availableData
           if data.count > 0,
              let result = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) {
-            output(result)
+            DispatchQueue.main.async {
+              output(result)
+            }
           }
         }
       }
@@ -88,7 +72,9 @@ public extension Commands.Task {
           let data = handler.availableData
           if data.count > 0,
              let result = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) {
-            errorOutput(result)
+            DispatchQueue.main.async {
+              errorOutput(result)
+            }
           }
         }
       }
@@ -116,7 +102,7 @@ public extension Commands.Task {
   }
 }
 
-private extension Commands.Task {
+public extension Commands.Task {
   static func prepare(_ request: Commands.Request) -> Process {
     let process = Process()
     if #available(macOS 10.13, *) {
@@ -124,13 +110,15 @@ private extension Commands.Task {
     } else {
       process.launchPath = request.executableURL
     }
-    if let environment = request.environment {
+    if let environment = request.environment?.data {
       process.environment = environment
     }
     if let dashc = request.dashc {
-      process.arguments = [dashc, request.command]
+      var arguments = dashc.raw
+      arguments.append(contentsOf: request.arguments?.raw ?? [])
+      process.arguments = arguments
     } else {
-      process.arguments = [request.command]
+      process.arguments = request.arguments?.raw
     }
     return process
   }
@@ -143,7 +131,9 @@ private extension Commands.Task {
     }
     process.waitUntilExit()
   }
-  
+}
+
+private extension Commands.Task {
   static func fileHandleData(fileHandle: FileHandle) throws -> String? {
     var outputData: Data?
     if #available(macOS 10.15.4, *) {
