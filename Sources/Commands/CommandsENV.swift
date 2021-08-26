@@ -17,6 +17,10 @@ extension Commands {
   }
 }
 
+extension Commands.ENV {
+  public static var global = Commands.ENV()
+}
+
 public extension Commands.ENV {
   mutating func add(PATH: String) {
     data["PATH"] = data["PATH"] == nil ? PATH : "\(PATH):\(data["PATH"]!)"

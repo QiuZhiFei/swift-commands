@@ -22,19 +22,19 @@ extension Commands {
 public extension Commands.Alias {
   @discardableResult
   func run(_ arguments: Commands.Arguments? = nil,
-           environment: Commands.ENV? = Commands.ENV()) -> Commands.Result {
+           environment: Commands.ENV? = Commands.ENV.global) -> Commands.Result {
     let request = prepare(arguments, environment: environment)
     return Commands.Task.run(request)
   }
   
   func system(_ arguments: Commands.Arguments? = nil,
-              environment: Commands.ENV? = Commands.ENV()) {
+              environment: Commands.ENV? = Commands.ENV.global) {
     let request = prepare(arguments, environment: environment)
     Commands.Task.system(request)
   }
   
   func system(_ arguments: Commands.Arguments? = nil,
-              environment: Commands.ENV? = Commands.ENV(),
+              environment: Commands.ENV? = Commands.ENV.global,
               output: ((String) -> Void)?,
               errorOutput: ((String) -> Void)?) {
     let request = prepare(arguments, environment: environment)

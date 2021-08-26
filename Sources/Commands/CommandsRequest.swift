@@ -9,7 +9,13 @@ import Foundation
 
 public extension Commands {
   struct Request {
-    public var environment: ENV?
+    public var environment: ENV? {
+      didSet {
+        if audited {
+          self.executableURL = getAbsoluteExecutableURL()
+        }
+      }
+    }
     public var executableURL: String {
       didSet {
         if audited {
@@ -24,7 +30,7 @@ public extension Commands {
       return getAbsoluteCommand()
     }
     
-    public init(_ environment: ENV? = ENV(),
+    public init(_ environment: ENV? = ENV.global,
                 executableURL: String,
                 dashc: Arguments? = nil,
                 arguments: Arguments? = nil,
@@ -61,7 +67,7 @@ public extension Commands {
         arguments = [arguments.joined(separator: " ")]
       }
       
-      var environment = ENV()
+      var environment = ENV.global
       for arg in env {
         let key = String(arg.split(separator: "=")[0])
         let value = String(arg.split(separator: "=")[1])
@@ -115,9 +121,9 @@ private extension Commands.Request {
   func getAbsoluteCommand() -> String {
     var result: [String] = []
     if let environment = environment {
-      let defaultENV = Commands.ENV()
+      let defaultENV = ProcessInfo.processInfo.environment
       result += environment.data
-        .filter{ defaultENV.data[$0.0] != $0.1 }
+        .filter{ defaultENV[$0.0] != $0.1 }
         .map{ "\($0)=\($1)" }
     }
     result += [executableURL]
