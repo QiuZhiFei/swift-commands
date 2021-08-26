@@ -15,63 +15,86 @@ import Commands
 ```
 
 ### Bash
-Executes command in a subprocess.
+Execute shell commands.
+```swift
+let result = Commands.Task.run("bash -c ls")
 ```
-Commands.Bash.system("ls")
+Or
+```swift
+let result = Commands.Bash.run("ls")
 ```
 
 ### Python
-Executes command in a subprocess.
+Execute python scripts.
 ```swift
-Commands.Python.system("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+let result = Commands.Task.run("python main.py")
 ```
-### Ruby
-Executes command in a subprocess.
+Execute python commands.
 ```swift
-Commands.Ruby.system("require 'base64'; puts Base64.encode64('qiuzhifei')")
+let result = Commands.Task.run("python -c import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+```
+Or
+```swift
+let result = Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+```
+
+### Ruby
+Execute ruby scripts.
+```swift
+let result = Commands.Task.run("ruby main.rb")
+```
+Execute ruby commands.
+```swift
+let result = Commands.Task.run("ruby -e require 'base64'; puts Base64.encode64('qiuzhifei')")
+```
+Or
+```swift
+let result = Commands.Ruby.run("require 'base64'; puts Base64.encode64('qiuzhifei')")
 ```
 
 ### Alias
 Create a shortcut name for a command.
 ```swift
-let node = Commands.Custom("/usr/local/bin/node", dashc: "-e")
-node.system("console.log('qiuzhifei')")
+let node = Commands.Alias("/usr/local/bin/node", dashc: "-e")
+let result = node.run("console.log('qiuzhifei')")
 ```
 
-### Custom
-Executes command in a subprocess.
+### Setting global environment variables
 ```swift
-Commands.Task.system("python main.py")
+Commands.ENV.global["http_proxy"] = "http://127.0.0.1:7890"
 ```
 ```swift
-Commands.Task.system("ruby -v")
+Commands.ENV.global.add(PATH: "/Users/zhifeiqiu/.rvm/bin")
 ```
 
 ### Making Commands
 ```swift
-Commands.Task.system("python main.py")
+let request: Commands.Request = "ruby -v"
+
+let result = Commands.Task.run(request)
 ```
 Or
 ```swift
-let request: Commands.Request = "node -v"
-Commands.Task.system(request)
+let request = Commands.Request(executableURL: "ruby", arguments: "-v")
+
+let result = Commands.Task.run(request)
 ```
 Change environment variables
 ```swift
-var request: Commands.Request = "node -v"
+var request: Commands.Request = "ruby -v"
 request.environment?.add(PATH: "/usr/local/bin")
 request.environment?["http_proxy"] = "http://127.0.0.1:7890"
 request.environment?["https_proxy"] = "http://127.0.0.1:7890"
 request.environment?["all_proxy"] = "socks5://127.0.0.1:7890"
 
-Commands.Task.system(request)
+let result = Commands.Task.run(request)
 ```
 
 ### Result Handler
 Returns the `Commands.Result` of running cmd in a subprocess.
-```
-let lsResult = Commands.Bash.run("ls")
-switch lsResult {
+```swift
+let result = Commands.Task.run("ruby -v")
+switch result {
 case .Success(let request, let response):
   debugPrint("command: \(request.absoluteCommand), success output: \(response.output)")
 case .Failure(let request, let response):
