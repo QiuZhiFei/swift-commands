@@ -6,27 +6,15 @@
 //
 
 public extension Commands {
-  enum Arguments {
-    case value(String)
-    case elements([String])
+  struct Arguments {
+    public let raw: [String]
     
-    init(_ value: String) {
-      self = Arguments.value(value)
+    public init(_ value: String) {
+      self.init([value])
     }
     
-    init(_ elements: [String]) {
-      self = Arguments.elements(elements)
-    }
-  }
-}
-
-extension Commands.Arguments {
-  var raw: [String] {
-    switch self {
-    case .value(let value):
-      return [value]
-    case .elements(let elements):
-      return elements
+    public init(_ elements: [String]) {
+      raw = elements
     }
   }
 }
