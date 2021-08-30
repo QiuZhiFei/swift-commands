@@ -50,33 +50,13 @@ public extension Commands {
       if data.count == 0 {
         data = [string]
       }
-      let env = data.filter{ $0.split(separator: "=").count == 2 }
-      var command = data.filter{ !env.contains($0) }
       
-      let executableURL = command.first!
-      command.removeFirst()
-      
-      var dashc: Commands.Arguments? = nil
-      if (command.first ?? "").starts(with: "-") {
-        dashc = Commands.Arguments(command.first!)
-        command.removeFirst()
-      }
-      
-      var arguments = command
-      if arguments.count > 0 {
-        arguments = [arguments.joined(separator: " ")]
-      }
-      
-      var environment = ENV.global
-      for arg in env {
-        let key = String(arg.split(separator: "=")[0])
-        let value = String(arg.split(separator: "=")[1])
-        environment[key] = value
-      }
-      self.init(environment,
-                executableURL: executableURL,
-                dashc: dashc,
-                arguments: Commands.Arguments(arguments))
+      self = Self.create(data, prepareArguments: { arguments in
+        if arguments.count > 0 {
+          return [arguments.joined(separator: " ")]
+        }
+        return arguments
+      })
     }
   }
 }
@@ -101,8 +81,14 @@ extension Commands.Request: Swift.ExpressibleByStringInterpolation {
   }
 }
 
+extension Commands.Request: Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: String...) {
+    self = Self.create(elements)
+  }
+}
+
 private extension Commands.Request {
-  private func getAbsoluteExecutableURL() -> String {
+  func getAbsoluteExecutableURL() -> String {
     if FileManager.default.fileExists(atPath: executableURL) {
       return executableURL
     }
@@ -130,6 +116,40 @@ private extension Commands.Request {
     result += dashc?.raw ?? []
     result += arguments?.raw ?? []
     return result.joined(separator: " ")
+  }
+  
+  static func create(_ data: [String],
+                     prepareArguments: (([String]) -> ([String]))? = nil) -> Self {
+    if data.count == 0 {
+      return Commands.Request(executableURL: "")
+    }
+    
+    let env = data.filter{ $0.split(separator: "=").count == 2 }
+    var command = data.filter{ !env.contains($0) }
+    
+    let executableURL = command.first!
+    command.removeFirst()
+    
+    var dashc: Commands.Arguments? = nil
+    if (command.first ?? "").starts(with: "-") {
+      dashc = Commands.Arguments(command.first!)
+      command.removeFirst()
+    }
+    
+    var arguments = command
+    arguments = prepareArguments?(arguments) ?? arguments
+    
+    var environment = Commands.ENV.global
+    for arg in env {
+      let key = String(arg.split(separator: "=")[0])
+      let value = String(arg.split(separator: "=")[1])
+      environment[key] = value
+    }
+    
+    return Commands.Request(environment,
+                            executableURL: executableURL,
+                            dashc: dashc,
+                            arguments: Commands.Arguments(arguments))
   }
 }
 

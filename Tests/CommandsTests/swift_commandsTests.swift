@@ -102,6 +102,8 @@ final class swift_commandsTests: XCTestCase {
   }
   
   func testCommansTask() throws {
+    XCTAssert(Commands.Task.run([]).isFailure)
+    
     XCTAssert(Commands.Task.run("bash -c pwd").output == FileManager.default.currentDirectoryPath)
     
     let path = Bundle.module.path(forResource: "main", ofType: "py")!

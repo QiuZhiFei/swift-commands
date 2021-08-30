@@ -118,7 +118,7 @@ public extension Commands.Task {
       arguments.append(contentsOf: request.arguments?.raw ?? [])
       process.arguments = arguments
     } else {
-      process.arguments = request.arguments?.raw
+      process.arguments = request.arguments?.raw ?? []
     }
     return process
   }
