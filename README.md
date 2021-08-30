@@ -9,6 +9,8 @@ Swift utilities for running commands.
 
 The `Commands` module allows you to take a system command as a string and return the standard output.
 
+[API documentation can be found here](https://qiuzhifei.github.io/swift-commands/).
+
 ## Usage
 ```
 import Commands
@@ -126,6 +128,12 @@ let package = Package(
 You can use [CocoaPods](http://cocoapods.org/) to install `Commands` by adding it to your `Podfile`:
 ```ruby
 pod 'Commands',        '~> 0.2.0'
+```
+
+## QuickStart
+```shell
+git clone https://github.com/QiuZhiFei/swift-commands
+cd swift-commands && open Package.swift
 ```
 
 ## References
