@@ -112,7 +112,7 @@ add the following line to the dependencies in your `Package.swift` file:
 let package = Package(
     // name, platforms, products, etc.
     dependencies: [
-        .package(url: "https://github.com/qiuzhifei/swift-commands", from: "0.4.0"),
+        .package(url: "https://github.com/qiuzhifei/swift-commands", from: "0.5.0"),
         // other dependencies
     ],
     targets: [
@@ -127,7 +127,7 @@ let package = Package(
 ## CocoaPods (OS X 10.9+)
 You can use [CocoaPods](http://cocoapods.org/) to install `Commands` by adding it to your `Podfile`:
 ```ruby
-pod 'Commands',        '~> 0.4.0'
+pod 'Commands',        '~> 0.5.0'
 ```
 
 ## QuickStart
