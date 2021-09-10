@@ -11,7 +11,7 @@ fileprivate extension Commands.Result {
   func log() {
     print("---------------")
     print(">>> \(request.absoluteCommand)")
-    print("\(self.reponse.output)")
+    print("\(self.response.output)")
     print("---------------")
   }
 }

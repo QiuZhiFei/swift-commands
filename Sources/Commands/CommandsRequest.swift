@@ -45,18 +45,12 @@ public extension Commands {
       }
     }
     
-    init(_ string: String) {
-      var data = string.split(separator: " ").map{ String($0) }
-      if data.count == 0 {
-        data = [string]
-      }
-      
-      self = Self.create(data, prepareArguments: { arguments in
-        if arguments.count > 0 {
-          return [arguments.joined(separator: " ")]
-        }
-        return arguments
-      })
+    public init(_ string: String) {
+      self = Self.create([string])
+    }
+    
+    public init(_ elements: [String]) {
+      self = Self.create(elements)
     }
   }
 }
@@ -124,32 +118,24 @@ private extension Commands.Request {
       return Commands.Request(executableURL: "")
     }
     
-    let env = data.filter{ $0.split(separator: "=").count == 2 }
-    var command = data.filter{ !env.contains($0) }
+    let result = parse(data)
     
-    let executableURL = command.first!
-    command.removeFirst()
-    
-    var dashc: Commands.Arguments? = nil
-    if (command.first ?? "").starts(with: "-") {
-      dashc = Commands.Arguments(command.first!)
-      command.removeFirst()
-    }
-    
-    var arguments = command
-    arguments = prepareArguments?(arguments) ?? arguments
+    let env = result.0.env
+    let executableURL = result.1.executableURL
+    let dashc = result.2.dashc
+    let arguments = result.3.arguments
     
     var environment = Commands.ENV.global
     for arg in env {
-      let key = String(arg.split(separator: "=")[0])
-      let value = String(arg.split(separator: "=")[1])
+      let key = String(arg[arg.startIndex..<arg.firstIndex(of: "=")!])
+      let value = String(arg[arg.firstIndex(of: "=")!..<arg.endIndex].dropFirst())
       environment[key] = value
     }
     
     return Commands.Request(environment,
                             executableURL: executableURL,
                             dashc: dashc,
-                            arguments: Commands.Arguments(arguments))
+                            arguments: arguments)
   }
 }
 
@@ -160,5 +146,97 @@ extension Commands.Request: Equatable {
       && lhs.dashc == rhs.dashc
       && lhs.arguments == rhs.arguments
       && lhs.audited == rhs.audited
+  }
+}
+
+extension Commands.Request {
+  private struct ENVResult {
+    var env: [String] = []
+    var finished: Bool = false
+  }
+  
+  private struct ExecutableURLResult {
+    var executableURL: String = ""
+    var finished: Bool = false
+  }
+  
+  private struct DashcResult {
+    var dashc: Commands.Arguments? = nil
+    var finished: Bool = false
+  }
+  
+  private struct ArgumentsResult {
+    var arguments: Commands.Arguments? = nil
+    var finished: Bool = false
+  }
+  
+  private static func parse(_ data: [String]) -> (
+    ENVResult, ExecutableURLResult, DashcResult, ArgumentsResult) {
+    var data = data.filter{ $0.split(separator: " ").map{ String($0) }.count > 0 }
+    
+    var envResult = ENVResult()
+    var executableURLResult = ExecutableURLResult()
+    var dashcResult = DashcResult()
+    var argumentsResult = ArgumentsResult()
+    
+    while data.count > 0 {
+      // env
+      if !envResult.finished {
+        let parameters = data.first!.split(separator: " ").map{ String($0) }
+        if !parameters.first!.contains("=") {
+          envResult.finished = true
+        } else {
+          envResult.env.append(parameters.first!)
+          data = shift(parameters, data)
+        }
+        continue
+      }
+      
+      // executableURL
+      if !executableURLResult.finished {
+        let parameters = data.first!.split(separator: " ").map{ String($0) }
+        executableURLResult.executableURL = parameters.first!
+        data = shift(parameters, data)
+        executableURLResult.finished = true
+        continue
+      }
+      
+      // dashc
+      if !dashcResult.finished {
+        let parameters = data.first!.split(separator: " ").map{ String($0) }
+        if parameters.first!.starts(with: "-"),
+           let dashc = Commands.DashcTransformerHandlerManager.transformer(executableURL: executableURLResult.executableURL, dashc: Commands.Arguments(parameters.first!)) {
+          dashcResult.dashc = dashc
+          data = shift(parameters, data)
+        }
+        dashcResult.finished = true
+        continue
+      }
+      
+      // arguments
+      if !argumentsResult.finished {
+        if data.count > 0 {
+          argumentsResult.arguments = Commands.Arguments(data)
+        }
+        data.removeAll()
+        argumentsResult.finished = true
+        continue
+      }
+    }
+    
+    return (envResult, executableURLResult, dashcResult, argumentsResult)
+  }
+  
+  private static func shift(_ parameters: [String],
+                            _ data: [String]) -> [String] {
+    var data = data
+    let command = parameters.dropFirst().joined(separator: " ")
+    if command.count == 0 {
+      data.removeFirst()
+    } else {
+      data.replaceSubrange(0...0, with: [command])
+    }
+    data = data.filter{ $0.split(separator: " ").map{ String($0) }.count > 0 }
+    return data
   }
 }

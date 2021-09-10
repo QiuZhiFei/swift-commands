@@ -9,8 +9,8 @@ import Foundation
 
 public extension Commands {
   enum Result {
-    case Success(_ request: Request, reponse: Response)
-    case Failure(_ request: Request, reponse: Response)
+    case Success(_ request: Request, response: Response)
+    case Failure(_ request: Request, response: Response)
   }
 }
 
@@ -24,7 +24,7 @@ public extension Commands.Result {
     }
   }
   
-  var reponse: Commands.Response {
+  var response: Commands.Response {
     switch self {
     case .Success(_, let response):
       return response
@@ -34,15 +34,15 @@ public extension Commands.Result {
   }
   
   var statusCode: Int32 {
-    return reponse.statusCode
+    return response.statusCode
   }
   
   var output: String {
-    return reponse.output
+    return response.output
   }
   
   var errorOutput: String {
-    return reponse.errorOutput
+    return response.errorOutput
   }
 }
 
@@ -64,6 +64,6 @@ public extension Commands.Result {
 extension Commands.Result: Equatable {
   public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.request == rhs.request
-      && lhs.reponse == rhs.reponse
+      && lhs.response == rhs.response
   }
 }

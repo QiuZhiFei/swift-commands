@@ -81,19 +81,19 @@ final class swift_commandsTests: XCTestCase {
       Commands.Bash.run("ls"),
       Commands.Task.run("bash -c ls")
     )
-
+    
     // ruby
     XCTAssertEqual(
       Commands.Ruby.run("require 'base64'; puts Base64.encode64('qiuzhifei')"),
       Commands.Task.run("ruby -e require 'base64'; puts Base64.encode64('qiuzhifei')")
     )
-
+    
     // python
     XCTAssertEqual(
       Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))"),
       Commands.Task.run("python -c import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
     )
-
+    
     // node
     XCTAssertEqual(
       Commands.Node.run("console.log(Buffer.from('qiuzhifei').toString('base64'))"),

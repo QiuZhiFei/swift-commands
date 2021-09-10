@@ -32,18 +32,18 @@ public extension Commands.Task {
         let response = Commands.Response(statusCode: process.terminationStatus,
                                          output: outputActual,
                                          errorOutput: errorActual)
-        return Commands.Result.Success(request, reponse: response)
+        return Commands.Result.Success(request, response: response)
       }
       
       let response = Commands.Response(statusCode: process.terminationStatus,
                                        output: errorActual,
                                        errorOutput: errorActual)
-      return Commands.Result.Failure(request, reponse: response)
+      return Commands.Result.Failure(request, response: response)
     } catch let error {
       let response = Commands.Response(statusCode: EXIT_FAILURE,
                                        output: "",
                                        errorOutput: error.localizedDescription)
-      return Commands.Result.Failure(request, reponse: response)
+      return Commands.Result.Failure(request, response: response)
     }
   }
   
