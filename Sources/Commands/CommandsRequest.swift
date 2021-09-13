@@ -205,7 +205,7 @@ extension Commands.Request {
       if !dashcResult.finished {
         let parameters = data.first!.split(separator: " ").map{ String($0) }
         if parameters.first!.starts(with: "-"),
-           let dashc = Commands.DashcTransformerHandlerManager.transformer(executableURL: executableURLResult.executableURL, dashc: Commands.Arguments(parameters.first!)) {
+           let dashc = Commands.DashcTransformer.transformer(executableURL: executableURLResult.executableURL, dashc: Commands.Arguments(parameters.first!)) {
           dashcResult.dashc = dashc
           data = shift(parameters, data)
         }
