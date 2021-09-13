@@ -13,17 +13,19 @@ public protocol CommandsDashcTransformerHandler {
 }
 
 extension Commands {
-  public struct DashcTransformerHandlerManager {
-    private static var handlers: [CommandsDashcTransformerHandler.Type] = [
-      BashDashcTransformer.self,
-      RubyDashcTransformer.self,
-      PythonDashcTransformer.self,
-      NodeDashcTransformer.self,
-    ]
-  }
+  public enum DashcTransformer { }
 }
 
-extension Commands.DashcTransformerHandlerManager {
+extension Commands.DashcTransformer {
+  private static var handlers: [CommandsDashcTransformerHandler.Type] = [
+    Bash.self,
+    Ruby.self,
+    Python.self,
+    Node.self,
+  ]
+}
+
+extension Commands.DashcTransformer {
   public static func register(_ handler: CommandsDashcTransformerHandler.Type) {
     if handlers.contains(where: { it in return type(of: it) == type(of: handler) }) {
       return
@@ -38,7 +40,7 @@ extension Commands.DashcTransformerHandlerManager {
   }
 }
 
-extension Commands.DashcTransformerHandlerManager {
+extension Commands.DashcTransformer {
   static func transformer(executableURL: String, dashc: Commands.Arguments?) -> Commands.Arguments? {
     for handler in handlers {
       if handler.canHandle(executableURL: executableURL, dashc: dashc) {
@@ -49,8 +51,8 @@ extension Commands.DashcTransformerHandlerManager {
   }
 }
 
-extension Commands {
-  public struct BashDashcTransformer: CommandsDashcTransformerHandler {
+extension Commands.DashcTransformer {
+  public struct Bash: CommandsDashcTransformerHandler {
     public static func canHandle(executableURL: String,
                                  dashc: Commands.Arguments?) -> Bool {
       if executableURL.hasSuffix("bash"), dashc?.raw == ["-c"] {
@@ -66,8 +68,8 @@ extension Commands {
   }
 }
 
-extension Commands {
-  public struct RubyDashcTransformer: CommandsDashcTransformerHandler {
+extension Commands.DashcTransformer {
+  public struct Ruby: CommandsDashcTransformerHandler {
     public static func canHandle(executableURL: String,
                                  dashc: Commands.Arguments?) -> Bool {
       if executableURL.hasSuffix("ruby"), dashc?.raw == ["-e"] {
@@ -84,8 +86,8 @@ extension Commands {
 }
 
 
-extension Commands {
-  public struct PythonDashcTransformer: CommandsDashcTransformerHandler {
+extension Commands.DashcTransformer {
+  public struct Python: CommandsDashcTransformerHandler {
     public static func canHandle(executableURL: String,
                                  dashc: Commands.Arguments?) -> Bool {
       if executableURL.hasSuffix("python"), dashc?.raw == ["-c"] {
@@ -101,8 +103,8 @@ extension Commands {
   }
 }
 
-extension Commands {
-  public struct NodeDashcTransformer: CommandsDashcTransformerHandler {
+extension Commands.DashcTransformer {
+  public struct Node: CommandsDashcTransformerHandler {
     public static func canHandle(executableURL: String,
                                  dashc: Commands.Arguments?) -> Bool {
       if executableURL.hasSuffix("node"), dashc?.raw == ["-e"] {
