@@ -23,6 +23,10 @@ let result = Commands.Task.run("bash -c ls")
 ```
 Or
 ```swift
+let result = Commands.Task.run(["bash", "-c", "ls"])
+```
+Or
+```swift
 let result = Commands.Bash.run("ls")
 ```
 
@@ -72,14 +76,14 @@ Commands.ENV.global.add(PATH: "/Users/zhifeiqiu/.rvm/bin")
 ### Making Commands
 ```swift
 let request: Commands.Request = "ruby -v"
-
-let result = Commands.Task.run(request)
+```
+Or
+```swift
+let request: Commands.Request = ["ruby", "-v"]
 ```
 Or
 ```swift
 let request = Commands.Request(executableURL: "ruby", arguments: "-v")
-
-let result = Commands.Task.run(request)
 ```
 Change environment variables
 ```swift
