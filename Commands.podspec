@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "Commands"
-  s.version     = "0.5.0"
+  s.version     = "0.6.0"
   s.summary     = "Swift utilities for running commands."
   s.homepage    = "https://github.com/qiuzhifei/swift-commands"
   s.license     = { :type => "MIT" }
