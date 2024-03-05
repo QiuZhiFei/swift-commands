@@ -15,7 +15,7 @@ final class swift_commandsTests: XCTestCase {
     
     let lsResult = Commands.Bash.run("ls \(dir)")
     XCTAssert(lsResult.isFailure)
-    XCTAssert(lsResult.output.contains("No such file or directory"))
+    XCTAssert(lsResult.errorOutput.contains("No such file or directory"))
   }
   
   func testCommandsRuby() throws {

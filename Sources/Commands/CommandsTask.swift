@@ -36,7 +36,7 @@ public extension Commands.Task {
       }
       
       let response = Commands.Response(statusCode: process.terminationStatus,
-                                       output: errorActual,
+                                       output: outputActual,
                                        errorOutput: errorActual)
       return Commands.Result.Failure(request, response: response)
     } catch let error {
