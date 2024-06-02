@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.swift_versions = ['5.1', '5.2', '5.3']
-  s.osx.deployment_target = "10.9"
+  s.osx.deployment_target = "11.0"
   s.source   = { :git => "https://github.com/qiuzhifei/swift-commands.git", :tag => s.version }
   s.source_files = "Sources/*/*.swift"
 end
