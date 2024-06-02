@@ -15,7 +15,7 @@ final class swift_commandsTests: XCTestCase {
     
     let lsResult = Commands.Bash.run("ls \(dir)")
     XCTAssert(lsResult.isFailure)
-    XCTAssert(lsResult.output.contains("No such file or directory"))
+    XCTAssert(lsResult.errorOutput.contains("No such file or directory"))
   }
   
   func testCommandsRuby() throws {
@@ -32,7 +32,7 @@ final class swift_commandsTests: XCTestCase {
   func testCommandsPython() throws {
     let python = Commands.Python
     
-    let base64Result = python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+    let base64Result = python.run("import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))")
     XCTAssert(base64Result.isSuccess)
     XCTAssert(base64Result.output == "qiuzhifei".data(using: .utf8)!.base64EncodedString())
     XCTAssert(base64Result.output == "cWl1emhpZmVp")
@@ -90,8 +90,8 @@ final class swift_commandsTests: XCTestCase {
     
     // python
     XCTAssertEqual(
-      Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))"),
-      Commands.Task.run("python -c import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+      Commands.Python.run("import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))"),
+      Commands.Task.run("python -c import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))")
     )
     
     // node

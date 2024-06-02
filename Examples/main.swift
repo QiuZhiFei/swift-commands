@@ -23,7 +23,7 @@ Commands.Bash.run("ls /bin/ls").log()
 Commands.Ruby.run("require 'base64'; puts Base64.encode64('qiuzhifei')").log()
 
 // Python
-Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))").log()
+Commands.Python.run("import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))").log()
 
 // Custom
 let node = Commands.Alias("node", dashc: "-e")
