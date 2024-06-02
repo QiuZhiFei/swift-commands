@@ -37,11 +37,11 @@ let result = Commands.Task.run("python main.py")
 ```
 Execute python commands.
 ```swift
-let result = Commands.Task.run("python -c import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+let result = Commands.Task.run("python -c import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))")
 ```
 Or
 ```swift
-let result = Commands.Python.run("import base64; print(base64.b64encode('qiuzhifei').decode('ascii'))")
+let result = Commands.Python.run("import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))")
 ```
 
 ### Ruby
