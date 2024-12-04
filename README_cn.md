@@ -128,7 +128,7 @@ let package = Package(
 )
 ```
 
-## CocoaPods (OS X 10.9+)
+## CocoaPods (OS X 11.0+)
 You can use [CocoaPods](http://cocoapods.org/) to install `Commands` by adding it to your `Podfile`:
 ```ruby
 pod 'Commands',        '~> 0.6.0'
