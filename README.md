@@ -1,9 +1,9 @@
 # Swift Commands
 ![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)
-![CocoaPods](https://img.shields.io/cocoapods/v/Commands.svg)
-[![CI Status](https://img.shields.io/github/workflow/status/qiuzhifei/swift-commands/Swift)](https://github.com/qiuzhifei/swift-commands/actions)
+![CocoaPods](https://img.shields.io/cocoapods/v/Commands?color=green)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/qiuzhifei/swift-commands/swift.yml)](https://github.com/qiuzhifei/swift-commands/actions)
 [![License](https://img.shields.io/github/license/qiuzhifei/swift-commands)](https://github.com/qiuzhifei/swift-commands/blob/main/LICENSE)
-![Platform](https://img.shields.io/badge/platforms-macOS%2010.9-orange)
+![Platform](https://img.shields.io/badge/platforms-macOS%2011.0-orange)
 
 Swift utilities for running commands.
 
@@ -128,10 +128,10 @@ let package = Package(
 )
 ```
 
-## CocoaPods (OS X 10.9+)
+## CocoaPods (OS X 11.0+)
 You can use [CocoaPods](http://cocoapods.org/) to install `Commands` by adding it to your `Podfile`:
 ```ruby
-pod 'Commands',        '~> 0.6.0'
+pod 'Commands',        '~> 0.7.0'
 ```
 
 ## QuickStart
