@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
   name: "swift-commands",
+  platforms: [
+      .macOS(.v11)
+  ],
   products: [
     .library(name: "Commands",
              targets: ["Commands"]),
