@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Commands  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a title="Commands  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Commands 0.7.0 Docs</a> (13% documented)</p>
+        <div class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Commands</a>
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Commands.html">Commands</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Alias.html">– Alias</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Arguments.html">– Arguments</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/DashcTransformer.html">– DashcTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/ENV.html">– ENV</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Request.html">– Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Response.html">– Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Result.html">– Result</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/Commands/Task.html">– Task</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/CommandsDashcTransformerHandler.html">CommandsDashcTransformerHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='swift-commands' class='heading'>Swift Commands</h1>
+
+<p><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="SPM">
+<img src="https://img.shields.io/cocoapods/v/Commands?color=green" alt="CocoaPods">
+<a href="https://github.com/qiuzhifei/swift-commands/actions"><img src="https://img.shields.io/github/actions/workflow/status/qiuzhifei/swift-commands/swift.yml" alt="CI Status"></a>
+<a href="https://github.com/qiuzhifei/swift-commands/blob/main/LICENSE"><img src="https://img.shields.io/github/license/qiuzhifei/swift-commands" alt="License"></a>
+<img src="https://img.shields.io/badge/platforms-macOS%2011.0-orange" alt="Platform"></p>
+
+<p>Swift utilities for running commands.</p>
+
+<p>The <code><a href="Enums/Commands.html">Commands</a></code> module allows you to take a system command as a string and return the standard output.</p>
+
+<p><a href="https://qiuzhifei.github.io/swift-commands/">API documentation can be found here</a>.</p>
+<h2 id='usage' class='heading'>Usage</h2>
+<pre class="highlight plaintext"><code>import Commands
+</code></pre>
+<h3 id='bash' class='heading'>Bash</h3>
+
+<p>Execute shell commands.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"bash -c ls"</span><span class="p">)</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">([</span><span class="s">"bash"</span><span class="p">,</span> <span class="s">"-c"</span><span class="p">,</span> <span class="s">"ls"</span><span class="p">])</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Bash</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"ls"</span><span class="p">)</span>
+</code></pre>
+<h3 id='python' class='heading'>Python</h3>
+
+<p>Execute python scripts.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"python main.py"</span><span class="p">)</span>
+</code></pre>
+
+<p>Execute python commands.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"python -c import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))"</span><span class="p">)</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Python</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"import base64; print(base64.b64encode(b'qiuzhifei').decode('ascii'))"</span><span class="p">)</span>
+</code></pre>
+<h3 id='ruby' class='heading'>Ruby</h3>
+
+<p>Execute ruby scripts.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"ruby main.rb"</span><span class="p">)</span>
+</code></pre>
+
+<p>Execute ruby commands.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"ruby -e require 'base64'; puts Base64.encode64('qiuzhifei')"</span><span class="p">)</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Ruby</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"require 'base64'; puts Base64.encode64('qiuzhifei')"</span><span class="p">)</span>
+</code></pre>
+<h3 id='alias' class='heading'>Alias</h3>
+
+<p>Create a shortcut name for a command.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">node</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Alias</span><span class="p">(</span><span class="s">"/usr/local/bin/node"</span><span class="p">,</span> <span class="nv">dashc</span><span class="p">:</span> <span class="s">"-e"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"console.log('qiuzhifei')"</span><span class="p">)</span>
+</code></pre>
+<h3 id='setting-global-environment-variables' class='heading'>Setting global environment variables</h3>
+<pre class="highlight swift"><code><span class="kt">Commands</span><span class="o">.</span><span class="kt">ENV</span><span class="o">.</span><span class="n">global</span><span class="p">[</span><span class="s">"http_proxy"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"http://127.0.0.1:7890"</span>
+</code></pre>
+<pre class="highlight swift"><code><span class="kt">Commands</span><span class="o">.</span><span class="kt">ENV</span><span class="o">.</span><span class="n">global</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">PATH</span><span class="p">:</span> <span class="s">"/Users/zhifeiqiu/.rvm/bin"</span><span class="p">)</span>
+</code></pre>
+<h3 id='making-commands' class='heading'>Making Commands</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Request</span> <span class="o">=</span> <span class="s">"ruby -v"</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Request</span> <span class="o">=</span> <span class="p">[</span><span class="s">"ruby"</span><span class="p">,</span> <span class="s">"-v"</span><span class="p">]</span>
+</code></pre>
+
+<p>Or</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">request</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Request</span><span class="p">(</span><span class="nv">executableURL</span><span class="p">:</span> <span class="s">"ruby"</span><span class="p">,</span> <span class="nv">arguments</span><span class="p">:</span> <span class="s">"-v"</span><span class="p">)</span>
+</code></pre>
+
+<p>Change environment variables</p>
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Request</span> <span class="o">=</span> <span class="s">"ruby -v"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">environment</span><span class="p">?</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="kt">PATH</span><span class="p">:</span> <span class="s">"/usr/local/bin"</span><span class="p">)</span>
+<span class="n">request</span><span class="o">.</span><span class="n">environment</span><span class="p">?[</span><span class="s">"http_proxy"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"http://127.0.0.1:7890"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">environment</span><span class="p">?[</span><span class="s">"https_proxy"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"http://127.0.0.1:7890"</span>
+<span class="n">request</span><span class="o">.</span><span class="n">environment</span><span class="p">?[</span><span class="s">"all_proxy"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"socks5://127.0.0.1:7890"</span>
+
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</code></pre>
+<h3 id='result-handler' class='heading'>Result Handler</h3>
+
+<p>Returns the <code><a href="Enums/Commands/Result.html">Commands.Result</a></code> of running cmd in a subprocess.</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Commands</span><span class="o">.</span><span class="kt">Task</span><span class="o">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"ruby -v"</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">.</span><span class="kt">Success</span><span class="p">(</span><span class="k">let</span> <span class="nv">request</span><span class="p">,</span> <span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+  <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"command: </span><span class="se">\(</span><span class="n">request</span><span class="o">.</span><span class="n">absoluteCommand</span><span class="se">)</span><span class="s">, success output: </span><span class="se">\(</span><span class="n">response</span><span class="o">.</span><span class="n">output</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="k">case</span> <span class="o">.</span><span class="kt">Failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">request</span><span class="p">,</span> <span class="k">let</span> <span class="nv">response</span><span class="p">):</span>
+  <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"command: </span><span class="se">\(</span><span class="n">request</span><span class="o">.</span><span class="n">absoluteCommand</span><span class="se">)</span><span class="s">, failure output: </span><span class="se">\(</span><span class="n">response</span><span class="o">.</span><span class="n">errorOutput</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='adding-commands-as-a-dependency' class='heading'>Adding Commands as a Dependency</h2>
+
+<p>To use the <code><a href="Enums/Commands.html">Commands</a></code> library in a SwiftPM project, 
+add the following line to the dependencies in your <code>Package.swift</code> file:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="c1">// name, platforms, products, etc.</span>
+    <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/qiuzhifei/swift-commands"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"0.6.0"</span><span class="p">),</span>
+        <span class="c1">// other dependencies</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"&lt;command-line-tool&gt;"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+            <span class="o">.</span><span class="nf">product</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"Commands"</span><span class="p">,</span> <span class="nv">package</span><span class="p">:</span> <span class="s">"swift-commands"</span><span class="p">),</span>
+        <span class="p">]),</span>
+        <span class="c1">// other targets</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre>
+<h2 id='cocoapods-os-x-11-0' class='heading'>CocoaPods (OS X 11.0+)</h2>
+
+<p>You can use <a href="http://cocoapods.org/">CocoaPods</a> to install <code><a href="Enums/Commands.html">Commands</a></code> by adding it to your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Commands'</span><span class="p">,</span>        <span class="s1">'~&gt; 0.7.0'</span>
+</code></pre>
+<h2 id='quickstart' class='heading'>QuickStart</h2>
+<pre class="highlight shell"><code>git clone https://github.com/QiuZhiFei/swift-commands
+<span class="nb">cd </span>swift-commands <span class="o">&amp;&amp;</span> open Package.swift
+</code></pre>
+<h2 id='references' class='heading'>References</h2>
+
+<ul>
+<li><a href="https://github.com/apple/swift-argument-parser">https://github.com/apple/swift-argument-parser</a></li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2024 <a class="link" href="https://github.com/qiuzhifei/swift-commands" target="_blank" rel="external noopener">lingoer and tangplin</a>. All rights reserved. (Last updated: 2024-12-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

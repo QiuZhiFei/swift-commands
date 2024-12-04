@@ -1,0 +1,733 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 8,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 8,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 10,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 15,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/Commands.swift",
+      "line": 55,
+      "symbol": "Commands",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 11,
+      "symbol": "Commands.Alias",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 12,
+      "symbol": "Commands.Alias.executableURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 13,
+      "symbol": "Commands.Alias.dashc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 15,
+      "symbol": "Commands.Alias.init(_:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 22,
+      "symbol": "Commands.Alias",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 24,
+      "symbol": "Commands.Alias.run(_:environment:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 30,
+      "symbol": "Commands.Alias.system(_:environment:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 36,
+      "symbol": "Commands.Alias.system(_:environment:output:errorOutput:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 56,
+      "symbol": "Commands.Bash",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 57,
+      "symbol": "Commands.Ruby",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 58,
+      "symbol": "Commands.Python",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsAlias.swift",
+      "line": 59,
+      "symbol": "Commands.Node",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 9,
+      "symbol": "Commands.Arguments",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 10,
+      "symbol": "Commands.Arguments.raw",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 12,
+      "symbol": "Commands.Arguments.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 16,
+      "symbol": "Commands.Arguments.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 22,
+      "symbol": "Commands.Arguments",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 36,
+      "symbol": "Commands.Arguments",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 42,
+      "symbol": "Commands.Arguments",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsArguments.swift",
+      "line": 48,
+      "symbol": "Commands.Arguments",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 10,
+      "symbol": "CommandsDashcTransformerHandler",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 11,
+      "symbol": "CommandsDashcTransformerHandler.canHandle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 12,
+      "symbol": "CommandsDashcTransformerHandler.handle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 16,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 28,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 29,
+      "symbol": "Commands.DashcTransformer.register(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 36,
+      "symbol": "Commands.DashcTransformer.unregister(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 54,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 55,
+      "symbol": "Commands.DashcTransformer.Bash",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 56,
+      "symbol": "Commands.DashcTransformer.Bash.canHandle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 64,
+      "symbol": "Commands.DashcTransformer.Bash.handle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 71,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 72,
+      "symbol": "Commands.DashcTransformer.Ruby",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 73,
+      "symbol": "Commands.DashcTransformer.Ruby.canHandle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 81,
+      "symbol": "Commands.DashcTransformer.Ruby.handle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 89,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 90,
+      "symbol": "Commands.DashcTransformer.Python",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 91,
+      "symbol": "Commands.DashcTransformer.Python.canHandle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 99,
+      "symbol": "Commands.DashcTransformer.Python.handle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 106,
+      "symbol": "Commands.DashcTransformer",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 107,
+      "symbol": "Commands.DashcTransformer.Node",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 108,
+      "symbol": "Commands.DashcTransformer.Node.canHandle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsDashcTransformer.swift",
+      "line": 116,
+      "symbol": "Commands.DashcTransformer.Node.handle(executableURL:dashc:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 11,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 12,
+      "symbol": "Commands.ENV.data",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 14,
+      "symbol": "Commands.ENV.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 20,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 21,
+      "symbol": "Commands.ENV.global",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 24,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 25,
+      "symbol": "Commands.ENV.add(PATH:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 30,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 31,
+      "symbol": "Commands.ENV.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 41,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsENV.swift",
+      "line": 48,
+      "symbol": "Commands.ENV",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 11,
+      "symbol": "Commands.Request",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 12,
+      "symbol": "Commands.Request.environment",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 19,
+      "symbol": "Commands.Request.executableURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 26,
+      "symbol": "Commands.Request.dashc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 27,
+      "symbol": "Commands.Request.arguments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 28,
+      "symbol": "Commands.Request.audited",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 29,
+      "symbol": "Commands.Request.absoluteCommand",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 33,
+      "symbol": "Commands.Request.init(_:executableURL:dashc:arguments:audited:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 48,
+      "symbol": "Commands.Request.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 52,
+      "symbol": "Commands.Request.init(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 58,
+      "symbol": "Commands.Request",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 72,
+      "symbol": "Commands.Request",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 78,
+      "symbol": "Commands.Request",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsRequest.swift",
+      "line": 142,
+      "symbol": "Commands.Request",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResponse.swift",
+      "line": 11,
+      "symbol": "Commands.Response",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResponse.swift",
+      "line": 12,
+      "symbol": "Commands.Response.statusCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResponse.swift",
+      "line": 13,
+      "symbol": "Commands.Response.output",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResponse.swift",
+      "line": 14,
+      "symbol": "Commands.Response.errorOutput",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResponse.swift",
+      "line": 18,
+      "symbol": "Commands.Response",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 11,
+      "symbol": "Commands.Result",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 12,
+      "symbol": "Commands.Result.Success(_:response:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 13,
+      "symbol": "Commands.Result.Failure(_:response:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 17,
+      "symbol": "Commands.Result",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 18,
+      "symbol": "Commands.Result.request",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 27,
+      "symbol": "Commands.Result.response",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 36,
+      "symbol": "Commands.Result.statusCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 40,
+      "symbol": "Commands.Result.output",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 44,
+      "symbol": "Commands.Result.errorOutput",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 49,
+      "symbol": "Commands.Result",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 50,
+      "symbol": "Commands.Result.isSuccess",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 59,
+      "symbol": "Commands.Result.isFailure",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsResult.swift",
+      "line": 64,
+      "symbol": "Commands.Result",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 11,
+      "symbol": "Commands.Task",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 14,
+      "symbol": "Commands.Task",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 16,
+      "symbol": "Commands.Task.run(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 50,
+      "symbol": "Commands.Task.system(_:output:errorOutput:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 95,
+      "symbol": "Commands.Task.system(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 105,
+      "symbol": "Commands.Task",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 106,
+      "symbol": "Commands.Task.prepare(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/swift-commands/swift-commands/Sources/Commands/CommandsTask.swift",
+      "line": 126,
+      "symbol": "Commands.Task.run(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/swift-commands/swift-commands"
+}
