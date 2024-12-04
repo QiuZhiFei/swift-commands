@@ -8,24 +8,27 @@ on:
 
 jobs:
   Jazzy:
-    runs-on: ubuntu-latest
-    container:
-      image: norionomura/jazzy:latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
     - name: ENV
       run: |
         uname -a
         swift --version
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Build
       run: |
         swift build -v
     - name: Generate documentation json
       run: |
-        sourcekitten doc --spm-module Commands > commands.json
+        brew install sourcekitten
+        sourcekitten doc --spm --module-name Commands > commands.json
     - name: Run jazzy
       run: |
-        jazzy --clean --sourcekitten-sourcefile commands.json
+        bundle exec jazzy --clean --sourcekitten-sourcefile commands.json
     - uses: actions/upload-artifact@v4
       with:
         name: API Docs
